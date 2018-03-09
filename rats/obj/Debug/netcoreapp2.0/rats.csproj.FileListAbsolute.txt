@@ -1,0 +1,11 @@
+D:\projects\rats\rats\bin\Debug\netcoreapp2.0\rats.deps.json
+D:\projects\rats\rats\bin\Debug\netcoreapp2.0\rats.runtimeconfig.json
+D:\projects\rats\rats\bin\Debug\netcoreapp2.0\rats.runtimeconfig.dev.json
+D:\projects\rats\rats\bin\Debug\netcoreapp2.0\rats.dll
+D:\projects\rats\rats\bin\Debug\netcoreapp2.0\rats.pdb
+D:\projects\rats\rats\obj\Debug\netcoreapp2.0\rats.csprojResolveAssemblyReference.cache
+D:\projects\rats\rats\obj\Debug\netcoreapp2.0\rats.csproj.CoreCompileInputs.cache
+D:\projects\rats\rats\obj\Debug\netcoreapp2.0\rats.AssemblyInfoInputs.cache
+D:\projects\rats\rats\obj\Debug\netcoreapp2.0\rats.AssemblyInfo.cs
+D:\projects\rats\rats\obj\Debug\netcoreapp2.0\rats.dll
+D:\projects\rats\rats\obj\Debug\netcoreapp2.0\rats.pdb
