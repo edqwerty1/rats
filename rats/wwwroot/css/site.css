@@ -22,6 +22,7 @@
 
 .container-nav {
     order: -1;
+
 }
 
 .container-nav,
@@ -44,9 +45,14 @@
 
     .container-nav, .container-ads {
         flex: 0 0 12em;
+
     }
 }
 
 .map-image {
     width: 100%;
+}
+
+.nav-link {
+
 }
