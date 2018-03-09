@@ -7,9 +7,14 @@
 
         var nav = document.getElementById("map-navigation");
         nav.innerHTML = navHtml;
+
+        var navlinks = document.getElementsByClassName("nav-link");
+
+        Array.from(navlinks).forEach((navlink) => {navlink.onclick = main.mapSearch;});
     };
 
     main.mapSearch = function (event) {
+        console.log(event.target);
         var map = maps.list.find((element) => { return element.name.toLowerCase().startsWith(event.target.value.toLowerCase()); });
 
         var imageHtml = "";
@@ -38,16 +43,17 @@
     };
 
     // Nav Bar
-    navHtml = "";
+    navHtml = "<ul>";
     maps.list.forEach((element) => {
 
-        navHtml += `
-<a href="www.google.com">
+        navHtml += `<li>
+<button class="nav-link" value="${element.name}">
    ${element.name}
-</a>
+</button></li>
 `;
-    });
 
+    });
+    navHtml += "</ul>";
 
     main.init();
 })(window.main = window.main || {});

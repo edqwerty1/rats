@@ -46,7 +46,7 @@ document.getElementById("parse").onclick = function () {
                 var imageUrl= $(images[descIndex]).find("a")[0].href ;
                 secret.images.push({
                     description: descriptions[descIndex].innerText.trim(),
-                    url: imageUrl.substr(0, imageUrl.indexOf('?')) +'/scale-to-width-down/678' 
+                    url: imageUrl.substr(0, imageUrl.indexOf('?')) +'/scale-to-width-down/978' 
                 });
             }
 
