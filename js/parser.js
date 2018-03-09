@@ -43,9 +43,10 @@ document.getElementById("parse").onclick = function () {
            
             for (descIndex = 0; descIndex < descriptions.length; descIndex++) {
                 console.log("a", $(images[descIndex]).find("a"));
+                var imageUrl= $(images[descIndex]).find("a")[0].href ;
                 secret.images.push({
                     description: descriptions[descIndex].innerText.trim(),
-                    url: $(images[descIndex]).find("a")[0].href
+                    url: imageUrl.substr(0, imageUrl.indexOf('?')) +'/scale-to-width-down/678' 
                 });
             }
 
