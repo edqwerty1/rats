@@ -10,7 +10,7 @@
     };
 
     main.mapSearch = function (event) {
-        var map = maps.list.find((element) => { return element.name.startsWith(event.target.value); });
+        var map = maps.list.find((element) => { return element.name.toLowerCase().startsWith(event.target.value.toLowerCase()); });
 
         var imageHtml = "";
         if (!event.target.value || !map) {
@@ -19,15 +19,18 @@
             return;
         }
 
-        map.images.forEach((element) => {
+        map.secrets.forEach((secret) => {
 
             imageHtml += `
-<div>
-    <div>${element.title}</div>
-    <div>${element.description}</div>
-    <image class="map-image" src="${element.url}">
-</div>
-`;
+            <div>
+                <h3>${secret.title}</h3>`
+            secret.images.forEach((image) => {
+                imageHtml += `
+    
+                    <div>${image.description}</div>
+                    <image class="map-image" src="${image.url}">`
+            });
+            imageHtml += `</div>`;
         });
 
         var insert = document.getElementById("map-insert");
