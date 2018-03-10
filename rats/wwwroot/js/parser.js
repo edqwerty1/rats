@@ -43,6 +43,8 @@ document.getElementById("parse").onclick = function () {
            
             for (descIndex = 0; descIndex < descriptions.length; descIndex++) {
                 console.log("a", $(images[descIndex]).find("a"));
+                if (!$(images[descIndex]).find("a")[0])
+                    continue;
                 var imageUrl= $(images[descIndex]).find("a")[0].href ;
                 secret.images.push({
                     description: descriptions[descIndex].innerText.trim(),
