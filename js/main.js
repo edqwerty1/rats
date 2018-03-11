@@ -23,14 +23,15 @@
             var insert = document.getElementById("map-insert");
             insert.innerHTML = imageHtml;
             var insert = document.getElementById("map-insert");
-             insert.innerHTML = imageHtml;
-             document.getElementById("map-name").innerText = "";
+            insert.innerHTML = imageHtml;
+            document.getElementById("map-name").innerText = "";
             return;
         }
 
         document.getElementById("map-name").innerText = map.name;
+        document.getElementById("source").innerText = "Source: " + map.source;
 
-         secretButtons = "<div>";
+        secretButtons = "<div>";
         map.secrets.forEach((secret) => {
             secretButtons += `<button class="secret-button" onclick="main.scrollTo('${secret.title.replace(/\s/g, '')}')">${secret.title}</button>`
         });
@@ -75,7 +76,7 @@
     navHtml += "</ul>";
 
 
-    main.scrollTo = function(hash) {
+    main.scrollTo = function (hash) {
         console.log(hash);
         location.hash = "#" + hash;
     }
