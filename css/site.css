@@ -57,6 +57,14 @@
    
 }
 
+.search-box {
+    border-color: grey;
+    border-radius: 0;
+    border-style: solid;
+    padding: 12px;
+    width: 100%;
+}
+
 @media (min-width: 1080px) {
     .container-body {
         flex-direction: row;
@@ -73,11 +81,13 @@
 
     }
 
-
+    .search-box {
+        width: 50%;
+    }
 }
 
 .nav-act {
-
+    text-align: center;
 }
 
 .nav-link {
@@ -94,3 +104,4 @@
 .nav-link:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 } 
+
