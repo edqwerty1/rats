@@ -1,16 +1,40 @@
 ﻿<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115523663-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115523663-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>Vermintide 2 Secrets Tome/Grimoire Locations</title>
 </head>
+
 <body class="container">
-    <header  class="container-header"><h1>Vermin Tide 2 Secrets Locations</h1></header>
+    <header class="container-header">
+        <h1>Vermin Tide 2 Secrets Locations</h1>
+    </header>
     <div class="container-body">
         <div class="container-content">
-            <input class="search-box" id="map-search" placeholder="Map name" />
 
+
+            <h2 id="map-name"></h2>
+            <h5 id="source"></h5>
+            <div class="secret-buttons-container" id="secret-buttons-insert"></div>
             <div class="map-container" id="map-insert"></div>
         </div>
 
-        <div class="container-nav" id="map-navigation"></div>
+        <div class="container-nav">
+            <div class="fixed-navigation">
+                <input class="search-box" id="map-search" placeholder="Map name" />
+                <div id="map-navigation"></div>
+            </div>
+        </div>
         <div class="container-ads"></div>
     </div>
     <footer class="container-footer">...</footer>
