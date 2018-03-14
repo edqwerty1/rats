@@ -15,9 +15,9 @@
             }
 
             navHtml += `<li>
-                            <button class="nav-link" value="${element.name}">
+                            <a href="${element.name.trim().replace(/\s/g, '-')}" class="nav-link" value="">
                                 ${element.name}
-                            </button>
+                            </a>
                         </li> `;
         });
 
@@ -27,9 +27,9 @@
 
         var navlinks = document.getElementsByClassName("nav-link");
 
-        Array.from(navlinks).forEach((navlink) => { navlink.onclick = main.mapSearch; });
+        Array.from(navlinks).forEach((navlink) => { navlink.onclick = main.renderPageForLink; });
 
-        main.renderPageForUrl(true);
+        main.renderPageForHistory(true);
     };
     var currentMap = "";
 
@@ -42,21 +42,33 @@
         else
             map = maps.list.find((element) => { return element.name.toLowerCase().startsWith(event.target.value.toLowerCase()); });
 
-        var pageTitle = map.name.trim() + " Secrets Tome/Grimoire Locations";
-        console.log("push state");
-        history.pushState({
-            url: map.name.trim().replace(/\s/g, '-'),
-            title: pageTitle
-        }, pageTitle, map.name.trim().replace(/\s/g, '-'));
+        if (map) {
+            var pageTitle = map.name.trim() + " Secrets Tome/Grimoire Locations";
+            console.log("push state");
+            history.pushState({
+                url: map.name.trim().replace(/\s/g, '-'),
+                title: pageTitle
+            }, pageTitle, map.name.trim().replace(/\s/g, '-'));
 
-        document.title = pageTitle;
-
+            document.title = pageTitle;
+        }
         main.renderPage(map);
 
     };
 
-    main.renderPageForUrl = function (logHistory) {
+    main.renderPageForLink = function (event) {
+        event.preventDefault();
+        var url = this.href;
+        main.renderPageForUrl(true, url);
+    }
+
+    main.renderPageForHistory = function (logHistory) {
         var url = window.location.href;
+        main.renderPageForUrl(logHistory, url);
+    }
+
+
+    main.renderPageForUrl = function (logHistory, url) {
         console.log(url);
         console.log("renderPageForUrl");
         if (url.indexOf('#') > 1)
@@ -70,16 +82,17 @@
             var map = null;
         }
 
-
-        var pageTitle = map.name.trim() + " Secrets Tome/Grimoire Locations";
-        if (logHistory === true) {
-            console.log("push state");
-            history.pushState({
-                url: map.name.trim().replace(/\s/g, '-'),
-                title: pageTitle
-            }, pageTitle, map.name.trim().replace(/\s/g, '-'));
+        if (map) {
+            var pageTitle = map.name.trim() + " Secrets Tome/Grimoire Locations";
+            if (logHistory === true) {
+                console.log("push state");
+                history.pushState({
+                    url: map.name.trim().replace(/\s/g, '-'),
+                    title: pageTitle
+                }, pageTitle, map.name.trim().replace(/\s/g, '-'));
+            }
+            document.title = pageTitle;
         }
-        document.title = pageTitle;
 
         main.renderPage(map);
     }
@@ -148,7 +161,7 @@
         var state = e.state;
         if (state !== null) {
             document.title = state.title;
-            main.renderPageForUrl(false);
+            main.renderPageForHistory(false);
         } else {
             document.title = 'Vermintide 2 Secrets Tome/Grimoire Locations';
             main.resetPage();
